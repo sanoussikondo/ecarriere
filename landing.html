@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>E-carrière</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
+
+<style>
+:root{
+    /* Couleurs principales (identité digitale institutionnelle) */
+    --primary: #0A8F43;        /* vert Niger moderne (institutionnel) */
+    --primary-dark: #067235;   /* vert foncé */
+    
+    --secondary: #06283D;      /* bleu profond pro */
+    --dark: #041C32;           /* fond sombre premium */
+
+    /* Accent Niger (orange officiel mais maîtrisé) */
+    --accent: #F77F00;         /* orange Niger moderne */
+    --accent-soft: rgba(247,127,0,0.15);
+
+    /* Neutres */
+    --light: #F7F9FB;          /* fond clair propre */
+    --text: #64748b;           /* texte secondaire */
+    --text-dark: #1E293B;      /* texte principal */
+
+    /* UI helpers */
+    --white: #FFFFFF;
+    --border: #E2E8F0;
+    --shadow: rgba(0,0,0,0.08);
+    --orange:orange;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:var(--light);
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+.navbar{
+    padding:18px 0;
+    background:#fff !important;
+    transition:.4s;
+    z-index:999;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:700;
+}
+
+.nav-link{
+    font-weight:500;
+    margin:0 10px;
+    position:relative;
+}
+
+.nav-link::after{
+    content:'';
+    position:absolute;
+    width:0;
+    height:2px;
+    left:0;
+    bottom:-5px;
+    background:var(--primary);
+    transition:.3s;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after{
+    width:100%;
+}
+
+
+.hero {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+/* TITRE */
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-title span {
+    color: #0a8f43;
+}
+
+/* TEXTE */
+.hero-text {
+    font-size: 16px;
+    opacity: 0.9;
+    max-width: 520px;
+}
+
+
+
+/* BADGE */
+.hero-badge {
+    background: white;
+    color: orange;
+    font-weight: 500;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+     h1{font-size:18px !important;}
+
+    .hero {
+        padding: 50px 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+        margin: 0 auto;
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .hero-img {
+        max-height: 280px;
+        margin-top: 20px;
+ position: relative;
+    z-index: 10;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .hero .row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero .col-lg-6:first-child {
+        order: 2;
+    }
+
+    .hero .col-lg-6:last-child {
+        order: 1;
+    }
+}
+.hero{
+    position:relative;
+    overflow:hidden;
+   
+    display:flex;
+    align-items:center;
+    padding-top:100px;
+    background:linear-gradient(
+        135deg,
+        #0A8F43 0%,   /* vert Niger dominant */
+        #067235 55%,  /* vert foncé pro */
+        #F77F00 100%  /* orange Niger accent */
+    );
+    color:#fff;
+}
+
+/* cercle accent vert doux */
+.hero::before{
+    content:'';
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(10,143,67,.18); /* vert lumineux */
+    top:-250px;
+    right:-150px;
+}
+
+/* cercle accent orange subtil */
+.hero::after{
+    content:'';
+    position:absolute;
+    width:380px;
+    height:380px;
+    border-radius:50%;
+    background:rgba(247,127,0,.12); /* orange Niger doux */
+    bottom:-120px;
+    left:-120px;
+}
+
+.hero h1{
+    font-size:4rem;
+    font-weight:800;
+    line-height:1.2;
+}
+
+.hero h1 span{
+    color:var(--orange);
+}
+
+.hero p{
+    font-size:1.15rem;
+    color:#d4dde6;
+    margin-top:20px;
+ text-align: justify;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-buttons .btn{
+    padding:15px 35px;
+    border-radius:50px;
+    display:inline-block;
+    position: relative;
+    z-index: 10;
+}
+
+/* STATS */
+.stats-section{
+    padding:90px 0;
+    background:
+        linear-gradient(
+            135deg,
+            #f8fafc 0%,
+            #ffffff 50%,
+            #f0fdf4 100%
+        );
+}
+
+.stats-badge{
+    display:inline-block;
+    padding:10px 18px;
+    background:rgba(10,143,67,.1);
+    color:#0a8f43;
+    border-radius:50px;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    margin-top:15px;
+    font-size:2.4rem;
+    font-weight:700;
+    color:#111827;
+}
+
+/* CARD */
+
+.stat-card{
+    position:relative;
+    background:#fff;
+    border-radius:24px;
+    padding:35px 25px;
+    text-align:center;
+    height:100%;
+    overflow:hidden;
+    transition:.4s;
+    border:1px solid rgba(0,0,0,.04);
+    box-shadow:0 10px 35px rgba(0,0,0,.06);
+}
+
+.stat-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+/* TOP BORDER */
+
+.stat-card::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:linear-gradient(
+        90deg,
+        #0a8f43,
+        #17c964
+    );
+}
+
+/* ICON */
+
+.stat-icon{
+    width:80px;
+    height:80px;
+    margin:auto;
+    margin-bottom:20px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(
+        135deg,
+        #0a8f43,
+        #17c964
+    );
+    color:#fff;
+    font-size:32px;
+    box-shadow:0 12px 25px rgba(10,143,67,.25);
+}
+
+/* NUMBER */
+
+.stat-card h2{
+    font-size:2.8rem;
+    font-weight:800;
+    color:#111827;
+    margin-bottom:10px;
+    line-height:1;
+}
+
+/* DESCRIPTION */
+
+.stat-card p{
+    margin:0;
+    color:#6b7280;
+    font-size:15px;
+    line-height:1.7;
+}
+
+/* DECORATION */
+
+.stat-card::after{
+    content:'';
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+   background:rgba(255, 183, 77, .12);
+    right:-40px;
+    bottom:-40px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .stat-card h2{
+        font-size:2.2rem;
+    }
+
+}
+
+/* SECTIONS */
+.section{
+    padding:110px 0;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title h2{
+    font-weight:700;
+    color:var(--secondary);
+}
+
+.section-title p{
+    color:var(--text);
+}
+
+/* STEP CARD */
+.step-card{
+    background:#fff;
+    border-radius:20px;
+    padding:40px 30px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.step-card:hover{
+    transform:translateY(-8px);
+}
+
+.step-number{
+    width:70px;
+    height:70px;
+    background:rgba(34,197,94,.15);
+    color:var(--primary);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:24px;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+/* ABOUT */
+.about-card,
+.about-mini{
+    border-radius:25px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.about-mini{
+    height:240px;
+}
+
+/* PILIERS */
+.pillars-section{
+    padding:100px 0;
+    background:
+    radial-gradient(circle at top left,#f0fdf4,#ffffff 50%),
+    radial-gradient(circle at bottom right,#eff6ff,#ffffff 50%);
+}
+
+/* TITRE */
+
+.pillars-badge{
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:50px;
+    background:rgba(10,143,67,.1);
+    color:#0a8f43;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    font-weight:800;
+    margin-top:20px;
+    color:#111827;
+}
+
+.section-title p{
+    max-width:750px;
+    margin:auto;
+    color:#6b7280;
+    font-size:18px;
+}
+
+/* CARTE CIRCULAIRE */
+
+.pillar-circle{
+    position:relative;
+    width:350px;
+    height:350px;
+    margin:auto;
+    border-radius:50%;
+    padding:60px 35px;
+    text-align:center;
+    overflow:hidden;
+    transition:.5s;
+    cursor:pointer;
+    backdrop-filter:blur(10px);
+}
+
+/* HOVER */
+
+.pillar-circle:hover{
+    transform:translateY(-15px) scale(1.03);
+}
+
+/* NUMERO */
+
+.pillar-number{
+    position:absolute;
+    top:25px;
+    right:35px;
+    font-size:70px;
+    font-weight:900;
+    opacity:.08;
+    color:#fff;
+}
+
+/* ICONE */
+
+.pillar-icon{
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:rgba(255,255,255,.2);
+    backdrop-filter:blur(8px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:38px;
+    margin-bottom:25px;
+    border:1px solid rgba(255,255,255,.3);
+}
+
+/* TITRE */
+
+.pillar-circle h4{
+    color:white;
+    font-size:1.5rem;
+    font-weight:700;
+    margin-bottom:15px;
+}
+
+/* TEXTE */
+
+.pillar-circle p{
+    color:rgba(255,255,255,.92);
+    line-height:1.8;
+    font-size:15px;
+}
+
+/* COULEURS */
+
+.pillar-green{
+    background:
+    linear-gradient(
+        135deg,
+        #0a8f43,
+        #16c05f
+    );
+
+    box-shadow:
+    0 25px 60px rgba(10,143,67,.35);
+}
+
+.pillar-orange{
+    background:
+    linear-gradient(
+        135deg,
+        #ff7b00,
+        #ffb300
+    );
+
+    box-shadow:
+    0 25px 60px rgba(255,123,0,.35);
+}
+
+.pillar-blue{
+    background:
+    linear-gradient(
+        135deg,
+        #2563eb,
+        #38bdf8
+    );
+
+    box-shadow:
+    0 25px 60px rgba(37,99,235,.35);
+}
+
+/* EFFET LUMIERE */
+
+.pillar-circle::before{
+    content:'';
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:rgba(255,255,255,.12);
+    border-radius:50%;
+    top:-70px;
+    left:-40px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    .pillar-circle{
+        width:300px;
+        height:300px;
+        padding:50px 25px;
+    }
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+}
+/* CTA */
+.cta{
+    background:linear-gradient(
+        135deg,
+        #041C32,
+        #06283D
+    );
+    color:white;
+    padding:120px 0;
+}
+
+.cta h2{
+    font-size:3rem;
+    margin-bottom:30px;
+}
+
+.cta .btn{
+    padding:16px 40px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    background:var(--dark);
+    color:#d7e5f3;
+    padding:80px 0 30px;
+}
+
+.footer h3,
+.footer h5{
+    color:white;
+    margin-bottom:20px;
+}
+
+.footer p{
+    color:#a8bfd3;
+}
+
+.footer-links,
+.footer-contact{
+    list-style:none;
+    padding:0;
+}
+
+.footer-links li,
+.footer-contact li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:#a8bfd3;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+    padding-left:5px;
+}
+
+.footer-contact i{
+    color:var(--primary);
+    width:22px;
+}
+
+.social-links a{
+    width:42px;
+    height:42px;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    color:white;
+    margin-right:10px;
+    transition:.3s;
+}
+
+.social-links a:hover{
+    background:var(--primary);
+    transform:translateY(-5px);
+}
+
+.footer hr{
+    border-color:rgba(255,255,255,.1);
+    margin:40px 0;
+}
+
+.footer-bottom{
+    color:#9db3c7;
+}
+
+.footer-bottom a{
+    color:#9db3c7;
+    text-decoration:none;
+}
+
+.footer-bottom a:hover{
+    color:var(--primary);
+}
+
+
+.fade-up{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .8s ease;
+}
+
+.fade-up.show{
+    opacity:1;
+    transform:translateY(0);
+}
+.hero h1,
+.hero p,
+.hero .hero-buttons{
+    opacity:0;
+    transform:translateY(30px);
+    animation:fadeInUp 1s forwards;
+}
+
+.hero h1{ animation-delay:.2s; }
+.hero p{ animation-delay:.4s; }
+.hero .hero-buttons{ animation-delay:.6s; }
+
+@keyframes fadeInUp{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.stat-card,
+.step-card,
+.pillar-card{
+    transition:all .4s ease;
+    will-change:transform;
+}
+
+.stat-card:hover,
+.step-card:hover,
+.pillar-card:hover{
+    transform:translateY(-12px) scale(1.02);
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+
+.about-mini,
+.about-card,
+.contact-form{
+    transition:.4s;
+}
+
+.about-mini:hover,
+.about-card:hover,
+.contact-form:hover{
+    transform:translateY(-5px);
+    box-shadow:0 25px 60px rgba(0,0,0,.12);
+}
+
+.btn{
+    transition:.3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.navbar{
+    transition:all .4s ease;
+}
+
+.navbar.scrolled{
+    background:rgba(255,255,255,.75) !important;
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+
+#particles{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+#particles span{
+    position:absolute;
+    width:6px;
+    height:6px;
+    background:rgba(255,255,255,.25);
+    border-radius:50%;
+    animation:float 12s linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(0) translateX(0);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-800px) translateX(100px);
+        opacity:0;
+    }
+}
+
+#loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:#041C32;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    color:white;
+}
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:5px solid rgba(255,255,255,.2);
+    border-top:5px solid #0A8F43;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    100%{ transform:rotate(360deg); }
+}
+
+#loader h3{
+    margin-top:15px;
+    color:#F77F00;
+}
+</style>
+<style>
+
+/* SECTION */
+.section-title h2{
+    font-size: 2.4rem;
+    color:#111827;
+}
+
+.badge-pillars{
+    background: linear-gradient(135deg,#ff7b00,#ff9800);
+    color:#fff;
+    padding:10px 18px;
+    border-radius:50px;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+/* CARD */
+.pillar-card{
+    position:relative;
+    background:#fff;
+    border-radius:25px;
+    padding:40px 30px;
+    height:100%;
+    overflow:hidden;
+    transition:0.4s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.06);
+    border:1px solid rgba(0,0,0,0.04);
+}
+
+/* HOVER */
+.pillar-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* ICON */
+.pillar-icon{
+    width:75px;
+    height:75px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:25px;
+    font-size:30px;
+    color:#fff;
+    background:linear-gradient(135deg,#0a8f43,#16c05f);
+    box-shadow:0 10px 25px rgba(10,143,67,0.25);
+}
+
+/* TITLE */
+.pillar-card h4{
+    font-size:1.5rem;
+    font-weight:700;
+    color:#111827;
+    margin-bottom:18px;
+    line-height:1.4;
+}
+
+/* TEXT */
+.pillar-card p{
+    color:#6b7280;
+    line-height:1.8;
+    margin-bottom:0;
+    font-size:15px;
+}
+
+/* NUMBER */
+.pillar-number{
+    position:absolute;
+    bottom:-15px;
+    right:20px;
+    font-size:90px;
+    font-weight:800;
+    color:rgba(10,143,67,0.07);
+    line-height:1;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+
+    .section-title h2{
+        font-size:2rem;
+    }
+
+    .pillar-card{
+        padding:30px 25px;
+    }
+
+}
+/* FORMULAIRE CONTACT */
+.contact-form{
+    border-radius:24px;
+    border:none;
+    box-shadow:0 15px 40px rgba(0,0,0,.08)!important;
+}
+
+.contact-form .form-label{
+    font-weight:600;
+    color:#1f2937;
+    margin-bottom:8px;
+    font-size:14px;
+}
+
+/* INPUTS */
+.contact-form .form-control,
+.contact-form .form-select{
+    height:58px;
+    border:none !important;
+    background:#f8fafc;
+    border-radius:14px;
+    padding:0 18px;
+    font-size:15px;
+    color:#374151;
+    box-shadow:none !important;
+    transition:.3s;
+}
+
+/* TEXTAREA */
+.contact-form textarea.form-control{
+    min-height:140px;
+    padding-top:15px;
+    resize:none;
+}
+
+/* PLACEHOLDER */
+.contact-form .form-control::placeholder,
+.contact-form .form-select{
+    color:#9ca3af;
+}
+
+/* FOCUS */
+.contact-form .form-control:focus,
+.contact-form .form-select:focus{
+    background:#fff;
+    border:none !important;
+    box-shadow:
+        0 0 0 4px rgba(10,143,67,.12),
+        0 8px 20px rgba(10,143,67,.08) !important;
+}
+
+/* BOUTON */
+.btn-ecarriere{
+    background:linear-gradient(135deg,#0a8f43,#16c05f);
+    color:#fff;
+    border:none;
+    border-radius:14px;
+    padding:14px 40px;
+    font-weight:600;
+    font-size:15px;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(10,143,67,.25);
+}
+
+.btn-ecarriere:hover{
+    transform:translateY(-3px);
+    color:#fff;
+    box-shadow:0 15px 35px rgba(10,143,67,.35);
+}
+
+.btn-top{
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 50px;
+    height: 50px;
+    background: #0a8f43;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,.2);
+    z-index: 999;
+    transition: .3s;
+}
+
+.btn-top:hover{
+    transform: translateY(-4px);
+    color: #fff;
+}
+</style>
+
+
+
+<style>
+:root {
+    --niger-orange: #f77f00;
+    --niger-green: #0a8f43;
+}
+
+.section-title h2 {
+    color: var(--niger-green);
+    font-weight: bold;
+}
+
+.about-card {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    border-top: 4px solid var(--niger-orange);
+    transition: 0.3s;
+}
+
+.about-card:hover {
+    transform: translateY(-4px);
+    border-top: 4px solid var(--niger-green);
+}
+
+.about-card img {
+    width: 100%;
+    height: 340px;
+   
+}
+
+.about-mini {
+    background: #fff;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--niger-green);
+}
+</style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="loader">
+    <div class="spinner"></div>
+    <h3>E-Carrière</h3>
+</div>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm fixed-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-success" href="#">
+            <span style="color:orange">E</span>-Carrière
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item"><a class="nav-link active">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link">À propos</a></li>
+                <li class="nav-item"><a class="nav-link">Partenaires</a></li>
+                <li class="nav-item"><a class="nav-link">Contact</a></li>
+                <li class="nav-item"><a class="nav-link">FAQ</a></li>
+            </ul>
+
+            <div class="d-flex gap-2">
+                <a class="btn btn-outline-success">Candidat</a>
+                <a class="btn btn-success">Structure</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div id="particles"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+
+            <!-- TEXTE -->
+            <div class="col-12 col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
+
+                <span class="badge mb-3 hero-badge">
+                    Initiative Gouvernement du Niger
+                </span>
+
+                <h1 class="hero-title">
+                    E-CARRIERE,<br/>
+                    <span>le professionnel de votre avenir</span>
+                </h1>
+
+                <p class="hero-text">
+                    E-Carrière est une plateforme de gestion des carrières des agents de l’État du Niger. 
+                    Elle permet de centraliser, suivre et optimiser la gestion administrative et professionnelle 
+                    des fonctionnaires à travers un système numérique moderne et sécurisé.
+                </p>
+
+                <div class="hero-buttons d-flex flex-column flex-sm-row gap-2 justify-content-center justify-content-lg-start">
+                    <a class="btn btn-success px-4" style="background-color:orange">Se connecter</a>
+                    <a class="btn btn-light px-4">Créer un compte</a>
+                </div>
+
+            </div>
+
+            <!-- IMAGE -->
+            <div class="col-12 col-lg-6 text-center">
+                <img src="img3.png" class="img-fluid hero-img">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+    <div class="container">
+
+        <div class="section-title text-center mb-5">
+            <span class="stats-badge">E-CARRIÈRE EN CHIFFRES</span>
+            <h2>Une plateforme au service des agents de l'État</h2>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+
+                    <h2 data-target="12530">12530</h2>
+
+                    <p>Agents de l’État enregistrés</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-file-signature"></i>
+                    </div>
+
+                    <h2 data-target="166">166</h2>
+
+                    <p>Actes de gestion publiés</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+
+                    <h2 data-target="17564">17564</h2>
+
+                    <p>Mises à jour de carrière effectuées</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+
+                    <h2 data-target="575">575</h2>
+
+                    <p>Structures administratives intégrées</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- COMMENT ÇA MARCHE -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Comment ça marche ?</h2>
+            <p>
+                E-Carrière est une plateforme numérique de gestion des carrières des agents de l’État du Niger. 
+                Elle permet de centraliser les informations administratives et d’assurer un suivi structuré et sécurisé 
+                du parcours professionnel des fonctionnaires.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">01</div>
+                    <h5>Création du dossier agent</h5>
+                    <p>Chaque agent dispose d’un profil administratif sécurisé contenant ses informations professionnelles.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">02</div>
+                    <h5>Saisie des actes de gestion</h5>
+                    <p>Les décisions administratives (recrutement, avancement, mutation) sont enregistrées dans le système.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">03</div>
+                    <h5>Suivi de carrière</h5>
+                    <p>La plateforme assure le suivi automatique et structuré de l’évolution professionnelle de l’agent.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3">
+                <div class="step-card">
+                    <div class="step-number">04</div>
+                    <h5>Validation et traçabilité</h5>
+                    <p>Les informations sont validées par les structures compétentes et archivées de manière sécurisée.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- A PROPOS -->
+<!-- A PROPOS -->
+<section class="section bg-light">
+    <div class="container">
+
+        <!-- TITRE -->
+        <div class="section-title mb-5">
+            <h2>À propos de E-Carrière</h2>
+            <p>
+                E-Carrière est une plateforme nationale dédiée à la gestion des carrières des agents de l’État du Niger. 
+                Elle vise à moderniser l’administration publique en assurant la centralisation, la traçabilité et la sécurisation 
+                des données relatives au parcours professionnel des fonctionnaires.
+            </p>
+        </div>
+
+        <!-- CONTENU -->
+        <div class="row align-items-start">
+
+            <!-- ✅ GAUCHE : GRILLE IMAGES -->
+            <div class="col-lg-8">
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="7.png" alt="E-Carrière 1">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="8.png" alt="E-Carrière 2">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="9.png" alt="E-Carrière 3">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="10.png" alt="E-Carrière 4">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="img3.png" alt="E-Carrière 5">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-4">
+                        <div class="about-card">
+                            <img src="11.png" alt="E-Carrière 6">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ✅ DROITE : 2 CARDS -->
+            <div class="col-lg-4">
+
+                <div class="about-mini mb-4">
+                    <h5>Modernisation de l’administration</h5>
+                    <p>
+                        Digitalisation des processus de gestion des ressources humaines de l’État pour plus d’efficacité et de transparence.
+                    </p>
+                </div>
+
+                <div class="about-mini">
+                    <h5>Gestion centralisée</h5>
+                    <p>
+                        Un système unique permettant de regrouper toutes les informations administratives des agents de l’État.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="pillars-section">
+    <div class="container">
+
+        <div class="section-title text-center mb-5">
+            <span class="pillars-badge">E-CARRIÈRE</span>
+
+            <h2>Les trois piliers de la transformation RH</h2>
+
+            <p>
+                Une approche innovante pour moderniser, sécuriser et valoriser
+                la gestion des carrières des agents de l'État du Niger.
+            </p>
+        </div>
+
+        <div class="row g-5 justify-content-center">
+
+            <!-- PILIER 1 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pillar-circle pillar-green">
+
+                    <div class="pillar-number">01</div>
+
+                    <div class="pillar-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+
+                    <h4>Digitalisation RH</h4>
+
+                    <p>
+                        Modernisation des processus administratifs
+                        grâce aux technologies numériques.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- PILIER 2 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pillar-circle pillar-orange">
+
+                    <div class="pillar-number">02</div>
+
+                    <div class="pillar-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+
+                    <h4>Traçabilité des carrières</h4>
+
+                    <p>
+                        Historique complet et suivi structuré
+                        du parcours professionnel des agents.
+                    </p>
+
+                </div>
+            </div>
+
+            <!-- PILIER 3 -->
+            <div class="col-lg-4 col-md-6">
+                <div class="pillar-circle pillar-blue">
+
+                    <div class="pillar-number">03</div>
+
+                    <div class="pillar-icon">
+                        <i class="fas fa-shield-check"></i>
+                    </div>
+
+                    <h4>Transparence & Efficacité</h4>
+
+                    <p>
+                        Des procédures plus rapides,
+                        plus fiables et totalement transparentes.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="cta2">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h2>Besoin d’assistance ? Contactez l’administration</h2>
+            <p>
+                Pour toute information relative à la gestion de votre carrière, veuillez remplir le formulaire ci-dessous.
+                Les services compétents vous répondront dans les meilleurs délais.
+            </p>
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <form class="contact-form p-4 bg-white shadow-sm rounded">
+
+                  <div class="row g-3">
+
+    <div class="col-md-6">
+        <label class="form-label">Nom complet</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fas fa-user"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Votre nom complet">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Matricule</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fas fa-id-badge"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="Votre matricule agent">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fas fa-envelope"></i>
+            </span>
+            <input type="email" class="form-control" placeholder="exemple@domain.com">
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Téléphone</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fas fa-phone-alt"></i>
+            </span>
+            <input type="text" class="form-control" placeholder="+227 ...">
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Objet de la demande</label>
+        <div class="input-group">
+            <span class="input-group-text">
+                <i class="fas fa-folder-open"></i>
+            </span>
+            <select class="form-control">
+                <option>Information sur carrière</option>
+                <option>Correction de données</option>
+                <option>Demande administrative</option>
+                <option>Autre</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Message</label>
+        <div class="input-group">
+            <span class="input-group-text align-items-start pt-3">
+                <i class="fas fa-comment-dots"></i>
+            </span>
+            <textarea class="form-control" rows="5" placeholder="Décrivez votre demande..."></textarea>
+        </div>
+    </div>
+
+    <div class="col-12 text-center mt-4">
+       <div class="col-12 text-center mt-4">
+    <button type="submit" class="btn btn-ecarriere">
+        <i class="fas fa-paper-plane me-2"></i>
+        Envoyer la demande
+    </button>
+</div>
+    </div>
+
+</div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<br/>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="row gy-5">
+
+            <div class="col-lg-4">
+                <h3 class="text-success"><span style="color:orange">E-</span>carrière</h3>
+
+                <p>
+                    Plateforme nationale de mise en relation entre les jeunes
+                    diplômés et les structures publiques et privées du Niger.
+                </p>
+
+                <div class="social-links mt-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5>Navigation</h5>
+
+                <ul class="footer-links">
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Partenaires</a></li>
+                    <li><a href="#">Offres</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Compte</h5>
+
+                <ul class="footer-links">
+                    <li><a href="#">Connexion</a></li>
+                    <li><a href="#">Inscription candidat</a></li>
+                    <li><a href="#">Inscription structure</a></li>
+                    <li><a href="#">Mon profil</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3">
+                <h5>Contact</h5>
+
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> Niamey, Niger</li>
+                    <li><i class="fas fa-envelope"></i> contact@koharaiki.ne</li>
+                    <li><i class="fas fa-phone"></i> (+227) XX XX XX XX</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row footer-bottom">
+            <div class="col-md-6">
+                © 2026 Kohar Aiki - Tous droits réservés
+            </div>
+
+            <div class="col-md-6 text-md-end">
+                <a href="#">Mentions légales</a> |
+                <a href="#">Politique de confidentialité</a>
+            </div>
+        </div>
+    </div>
+
+<a href="#top" class="btn-top">
+    <i class="fas fa-arrow-up"></i>
+</a>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const elements = document.querySelectorAll(
+    '.stat-card, .step-card, .pillar-card, .about-card, .about-mini'
+);
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('show');
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+elements.forEach(el => {
+    el.classList.add('fade-up');
+    observer.observe(el);
+});
+
+
+window.addEventListener("scroll", function () {
+    const nav = document.querySelector(".navbar");
+    if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+
+
+
+const particles = document.getElementById("particles");
+
+for(let i = 0; i < 40; i++){
+    let span = document.createElement("span");
+
+    span.style.left = Math.random() * 100 + "%";
+    span.style.top = Math.random() * 100 + "%";
+    span.style.animationDuration = (5 + Math.random() * 10) + "s";
+    span.style.opacity = Math.random();
+
+    particles.appendChild(span);
+}
+
+window.addEventListener("load", function(){
+    const loader = document.getElementById("loader");
+
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.transition = "0.5s";
+    }, 800);
+
+    setTimeout(() => {
+        loader.style.display = "none";
+    }, 1300);
+});
+</script>
+
+</body>
+</html>
